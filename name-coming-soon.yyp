@@ -34,7 +34,9 @@
   },
   "name":"name-coming-soon",
   "resources":[
+    {"id":{"name":"ObjectRobot","path":"objects/ObjectRobot/ObjectRobot.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"SpriteRobot","path":"sprites/SpriteRobot/SpriteRobot.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
