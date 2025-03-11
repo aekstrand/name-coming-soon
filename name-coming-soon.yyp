@@ -34,6 +34,9 @@
   },
   "name":"name-coming-soon",
   "resources":[
+    {"id":{"name":"ObjectBattery","path":"objects/ObjectBattery/ObjectBattery.yy",},},
+    {"id":{"name":"ObjectItemParent","path":"objects/ObjectItemParent/ObjectItemParent.yy",},},
+    {"id":{"name":"ObjectPickupParent","path":"objects/ObjectPickupParent/ObjectPickupParent.yy",},},
     {"id":{"name":"ObjectRobot","path":"objects/ObjectRobot/ObjectRobot.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"SpriteCheckerBoard","path":"sprites/SpriteCheckerBoard/SpriteCheckerBoard.yy",},},
