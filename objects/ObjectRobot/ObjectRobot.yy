@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"SpriteRobot",
-    "path":"sprites/SpriteRobot/SpriteRobot.yy",
+    "name":"SpriteRobotFront",
+    "path":"sprites/SpriteRobotFront/SpriteRobotFront.yy",
   },
   "spriteMaskId":null,
   "visible":true,
