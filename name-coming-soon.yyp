@@ -30,11 +30,12 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.11.0.179",
+    "IDEVersion":"2024.6.2.162",
   },
   "name":"name-coming-soon",
   "resources":[
     {"id":{"name":"ObjectBattery","path":"objects/ObjectBattery/ObjectBattery.yy",},},
+    {"id":{"name":"ObjectCamera","path":"objects/ObjectCamera/ObjectCamera.yy",},},
     {"id":{"name":"ObjectItemParent","path":"objects/ObjectItemParent/ObjectItemParent.yy",},},
     {"id":{"name":"ObjectPickupParent","path":"objects/ObjectPickupParent/ObjectPickupParent.yy",},},
     {"id":{"name":"ObjectRobot","path":"objects/ObjectRobot/ObjectRobot.yy",},},
