@@ -28,7 +28,9 @@ if(xDir == global.speed && yDir == global.speed) {
 }
 */
 
-move_and_collide(xDir, yDir, all);
+move_and_collide(xDir, yDir, ObjectTerrain);
 
 x = clamp(x, 0, room_width - sprite_width);
 y = clamp(y, 0, room_height - sprite_height);
+
+if (global.health <= 0) room_restart();
