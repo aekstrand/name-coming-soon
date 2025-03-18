@@ -1,0 +1,1 @@
+global.last_item = other.id;
