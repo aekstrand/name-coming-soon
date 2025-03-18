@@ -1,0 +1,26 @@
+{
+  "$GMParticleSystem":"",
+  "%Name":"FirePit_PS",
+  "backdropHeight":768,
+  "backdropImageOpacity":0.5,
+  "backdropImagePath":"",
+  "backdropWidth":1366,
+  "backdropXOffset":0.0,
+  "backdropYOffset":0.0,
+  "drawOrder":0,
+  "emitters":[
+    {"$GMPSEmitter":"","%Name":"GM_Warp_Center","additiveBlend":false,"directionIncrease":0.0,"directionMax":360.0,"directionMin":0.0,"directionWiggle":0.0,"distribution":0,"editorColour":16777215,"editorDrawShape":true,"emitCount":13,"emitDelayMax":0.0,"emitDelayMin":0.0,"emitDelayUnits":0,"emitIntervalMax":0.0,"emitIntervalMin":0.0,"emitIntervalUnits":0,"enabled":true,"endColour":826542796,"GMPresetName":"","gravityDirection":270.0,"gravityForce":0.0,"headPosition":0.0,"lifetimeMax":60.0,"lifetimeMin":50.0,"linkedEmitter":null,"locked":false,"midColour":4278190335,"mode":0,"name":"GM_Warp_Center","orientationIncrease":0.0,"orientationMax":0.0,"orientationMin":0.0,"orientationRelative":false,"orientationWiggle":0.0,"regionH":64.0,"regionW":64.0,"regionX":0.0,"regionY":0.0,"resourceType":"GMPSEmitter","resourceVersion":"2.0","scaleX":1.0,"scaleY":1.0,"shape":1,"sizeIncrease":0.0,"sizeMax":0.15,"sizeMin":0.2,"sizeWiggle":0.0,"spawnOnDeathCount":1,"spawnOnDeathGMPreset":null,"spawnOnDeathId":{"name":"EmberSplashout","path":"particlelib/EmberSplashout/EmberSplashout.yy",},"spawnOnUpdateCount":0,"spawnOnUpdateGMPreset":null,"spawnOnUpdateId":null,"speedIncrease":0.01,"speedMax":1.0,"speedMin":1.0,"speedWiggle":0.0,"spriteAnimate":false,"spriteId":null,"spriteRandom":false,"spriteStretch":true,"startColour":4278390059,"texture":1,},
+    {"$GMPSEmitter":"","%Name":"EmberSplashout","additiveBlend":true,"directionIncrease":0.0,"directionMax":360.0,"directionMin":0.0,"directionWiggle":30.0,"distribution":0,"editorColour":16777215,"editorDrawShape":true,"emitCount":-3,"emitDelayMax":0.0,"emitDelayMin":0.0,"emitDelayUnits":0,"emitIntervalMax":0.0,"emitIntervalMin":0.0,"emitIntervalUnits":0,"enabled":true,"endColour":45823,"GMPresetName":null,"gravityDirection":270.0,"gravityForce":0.0,"headPosition":0.0,"lifetimeMax":180.0,"lifetimeMin":60.0,"linkedEmitter":{"name":"EmberSplashout","path":"particlelib/EmberSplashout/EmberSplashout.yy",},"locked":false,"midColour":4278227199,"mode":0,"name":"EmberSplashout","orientationIncrease":0.0,"orientationMax":360.0,"orientationMin":0.0,"orientationRelative":false,"orientationWiggle":0.0,"regionH":32.0,"regionW":16.0,"regionX":-1.0,"regionY":-4.0,"resourceType":"GMPSEmitter","resourceVersion":"2.0","scaleX":0.2,"scaleY":0.2,"shape":0,"sizeIncrease":0.0,"sizeMax":0.1,"sizeMin":0.1,"sizeWiggle":0.0,"spawnOnDeathCount":0,"spawnOnDeathGMPreset":null,"spawnOnDeathId":null,"spawnOnUpdateCount":0,"spawnOnUpdateGMPreset":null,"spawnOnUpdateId":null,"speedIncrease":0.0,"speedMax":0.5,"speedMin":1.0,"speedWiggle":0.0,"spriteAnimate":false,"spriteId":null,"spriteRandom":false,"spriteStretch":true,"startColour":4278245631,"texture":1,},
+  ],
+  "name":"FirePit_PS",
+  "parent":{
+    "name":"Particle Systems",
+    "path":"folders/Objects/Particle Systems.yy",
+  },
+  "resourceType":"GMParticleSystem",
+  "resourceVersion":"2.0",
+  "showBackdrop":true,
+  "showBackdropImage":false,
+  "xorigin":0,
+  "yorigin":0,
+}
