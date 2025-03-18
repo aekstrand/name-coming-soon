@@ -1,4 +1,4 @@
-global.speed = 5;
+global.speed = 3;
 global.xDir = 0;
 global.yDir = 0;
 global.health = 4;

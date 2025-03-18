@@ -5,3 +5,4 @@ if(global.wood_in_inventory > 0) {
 	show_debug_message(global.wood_in_base);
 }
 global.time = 0;
+global.health = 4;
