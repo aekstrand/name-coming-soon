@@ -2,6 +2,7 @@ global.speed = 5;
 global.xDir = 0;
 global.yDir = 0;
 global.health = 4;
+global.time = 0;
 global.last_item = self;
 global.wood_in_inventory = 0;
 global.wood_in_base = 0;
