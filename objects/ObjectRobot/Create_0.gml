@@ -1,1 +1,0 @@
-global.health = 4;
