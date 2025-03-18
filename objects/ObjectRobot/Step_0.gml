@@ -33,4 +33,7 @@ move_and_collide(xDir, yDir, ObjectTerrain);
 x = clamp(x, 0, room_width - sprite_width);
 y = clamp(y, 0, room_height - sprite_height);
 
-if (global.health <= 0) room_restart();
+if (global.health <= 0) {
+	global.wood_in_inventory = 0;
+	room_restart();
+}

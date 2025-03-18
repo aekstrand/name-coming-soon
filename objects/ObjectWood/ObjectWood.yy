@@ -1,15 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"ObjectPickupParent",
+  "%Name":"ObjectWood",
   "eventList":[],
   "managed":true,
-  "name":"ObjectPickupParent",
+  "name":"ObjectWood",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
     "path":"folders/Objects.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"ObjectPickupParent",
+    "path":"objects/ObjectPickupParent/ObjectPickupParent.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -27,7 +30,13 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
-  "spriteMaskId":null,
-  "visible":false,
+  "spriteId":{
+    "name":"SpriteWood",
+    "path":"sprites/SpriteWood/SpriteWood.yy",
+  },
+  "spriteMaskId":{
+    "name":"SpriteCheckerBoard",
+    "path":"sprites/SpriteCheckerBoard/SpriteCheckerBoard.yy",
+  },
+  "visible":true,
 }

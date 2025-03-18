@@ -30,7 +30,13 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
-  "spriteMaskId":null,
+  "spriteId":{
+    "name":"SpriteBattery",
+    "path":"sprites/SpriteBattery/SpriteBattery.yy",
+  },
+  "spriteMaskId":{
+    "name":"SpriteCheckerBoard",
+    "path":"sprites/SpriteCheckerBoard/SpriteCheckerBoard.yy",
+  },
   "visible":true,
 }
