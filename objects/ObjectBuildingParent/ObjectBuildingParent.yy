@@ -1,18 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"ObjectItemParent",
+  "%Name":"ObjectBuildingParent",
   "eventList":[],
   "managed":true,
-  "name":"ObjectItemParent",
+  "name":"ObjectBuildingParent",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
     "path":"folders/Objects.yy",
   },
-  "parentObjectId":{
-    "name":"ObjectPickupParent",
-    "path":"objects/ObjectPickupParent/ObjectPickupParent.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -27,7 +24,7 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"variable_type","filters":[],"listItems":[],"multiselect":false,"name":"variable_type","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"null","varType":2,},
+    {"$GMObjectProperty":"v1","%Name":"variable_ui_id","filters":[],"listItems":[],"multiselect":false,"name":"variable_ui_id","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"null","varType":2,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

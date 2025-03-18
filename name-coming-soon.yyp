@@ -39,12 +39,13 @@
     {"name":"HazeEmitter","path":"particlelib/HazeEmitter/HazeEmitter.yy",},
   ],
   "MetaData":{
-    "IDEVersion":"2024.6.2.162",
+    "IDEVersion":"2024.11.0.179",
   },
   "name":"name-coming-soon",
   "resources":[
     {"id":{"name":"Font1","path":"fonts/Font1/Font1.yy",},},
     {"id":{"name":"ObjectBattery","path":"objects/ObjectBattery/ObjectBattery.yy",},},
+    {"id":{"name":"ObjectBuildingParent","path":"objects/ObjectBuildingParent/ObjectBuildingParent.yy",},},
     {"id":{"name":"ObjectCamera","path":"objects/ObjectCamera/ObjectCamera.yy",},},
     {"id":{"name":"ObjectEnemy1","path":"objects/ObjectEnemy1/ObjectEnemy1.yy",},},
     {"id":{"name":"ObjectEnemy2","path":"objects/ObjectEnemy2/ObjectEnemy2.yy",},},
