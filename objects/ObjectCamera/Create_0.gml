@@ -1,5 +1,5 @@
-#macro RES_W 640
-#macro RES_H 480
+#macro RES_W 1920
+#macro RES_H 1080
 
 x = ObjectRobot.x
 y = ObjectRobot.y
