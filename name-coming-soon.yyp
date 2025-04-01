@@ -65,6 +65,7 @@
     {"id":{"name":"ObjectQuartz","path":"objects/ObjectQuartz/ObjectQuartz.yy",},},
     {"id":{"name":"ObjectRobot","path":"objects/ObjectRobot/ObjectRobot.yy",},},
     {"id":{"name":"ObjectSafe","path":"objects/ObjectSafe/ObjectSafe.yy",},},
+    {"id":{"name":"ObjectStormController","path":"objects/ObjectStormController/ObjectStormController.yy",},},
     {"id":{"name":"ObjectSulphur","path":"objects/ObjectSulphur/ObjectSulphur.yy",},},
     {"id":{"name":"ObjectTerrain","path":"objects/ObjectTerrain/ObjectTerrain.yy",},},
     {"id":{"name":"ObjectUranium","path":"objects/ObjectUranium/ObjectUranium.yy",},},
