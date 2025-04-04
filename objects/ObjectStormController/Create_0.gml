@@ -6,10 +6,11 @@ function spawn_item(biome, rare, objId) {
 	maxR = 10000;
 	minR = 0;
 	if(rare) {
-		minR = 4000;
+		minR = 5000;
 	} else {
-		minR = 100;
+		minR = 320;
 	}
+	show_debug_message(minR);
 	minA = 0;
 	maxA = 0;
 	if(biome == 0) {
