@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"SpriteTempSafeZone",
-    "path":"sprites/SpriteTempSafeZone/SpriteTempSafeZone.yy",
+    "name":"SpriteTempSafeZone_1",
+    "path":"sprites/SpriteTempSafeZone_1/SpriteTempSafeZone_1.yy",
   },
   "spriteMaskId":null,
   "visible":true,

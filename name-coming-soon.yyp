@@ -101,6 +101,7 @@
     {"id":{"name":"SpriteRobotLeft","path":"sprites/SpriteRobotLeft/SpriteRobotLeft.yy",},},
     {"id":{"name":"SpriteRobotRight","path":"sprites/SpriteRobotRight/SpriteRobotRight.yy",},},
     {"id":{"name":"SpriteSulphur","path":"sprites/SpriteSulphur/SpriteSulphur.yy",},},
+    {"id":{"name":"SpriteTempSafeZone_1","path":"sprites/SpriteTempSafeZone_1/SpriteTempSafeZone_1.yy",},},
     {"id":{"name":"SpriteTempSafeZone","path":"sprites/SpriteTempSafeZone/SpriteTempSafeZone.yy",},},
     {"id":{"name":"SpriteUranium","path":"sprites/SpriteUranium/SpriteUranium.yy",},},
     {"id":{"name":"SpriteWood","path":"sprites/SpriteWood/SpriteWood.yy",},},
