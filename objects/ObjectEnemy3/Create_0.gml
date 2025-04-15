@@ -12,3 +12,5 @@ ystart = y;
 cooldown = 0;
 
 dist_to_spawn = 0;
+
+sprite_index = SpriteEnemy3;

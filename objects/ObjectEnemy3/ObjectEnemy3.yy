@@ -13,10 +13,7 @@
     "name":"Objects",
     "path":"folders/Objects.yy",
   },
-  "parentObjectId":{
-    "name":"ObjectTerrain",
-    "path":"objects/ObjectTerrain/ObjectTerrain.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -35,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"SpriteEnemy2",
-    "path":"sprites/SpriteEnemy2/SpriteEnemy2.yy",
+    "name":"SpriteEnemy3",
+    "path":"sprites/SpriteEnemy3/SpriteEnemy3.yy",
   },
   "spriteMaskId":null,
   "visible":true,

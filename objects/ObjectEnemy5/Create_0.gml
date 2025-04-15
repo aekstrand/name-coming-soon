@@ -16,3 +16,5 @@ shooting = false;
 
 image_alpha = 0;
 fade_range = 100;
+
+sprite_index = SpriteEnemy5;

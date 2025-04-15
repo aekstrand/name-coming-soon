@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"SpriteEnemy6",
-    "path":"sprites/SpriteEnemy6/SpriteEnemy6.yy",
+    "name":"SpriteEnemy7",
+    "path":"sprites/SpriteEnemy7/SpriteEnemy7.yy",
   },
   "spriteMaskId":null,
   "visible":true,

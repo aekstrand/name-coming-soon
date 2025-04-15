@@ -38,3 +38,4 @@ dash_duration = 300;
 
 spd = 0
 
+sprite_index = SpriteEnemy4_1;

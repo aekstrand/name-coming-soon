@@ -8,3 +8,5 @@ wander_dir = irandom(359);
 
 spd = 0;
 attacking = false;
+
+sprite_index = SpriteEnemy8;

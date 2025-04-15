@@ -1,5 +1,6 @@
 //enemy that just chases the player but gets a burst of speed every couple secs
 
+sprite_index = SpriteEnemy7;
 
 state = "idle"
 attacking = false
