@@ -1,7 +1,9 @@
 // INTERACT BUTTON
 // Check if still near item
-if(global.last_item.id != self.id) {
-	if(sqrt(power(x-global.last_item.id.x, 2) + power(y-global.last_item.id.y, 2)) < 100) {
+if(instance_exists(global.last_item) && global.last_item.id != self.id) {
+	if(sqrt(power(x-global.last_item.id.x, 2) + power(y-global.last_item.id.y, 2)) < 100 && global.can_walk) {
+		global.can_walk = false; //pauses the player while picking up item
+		alarm[8] = 40;
 		if(global.last_item.object_index == ObjectBattery) {
 			global.health += 1;
 		} else if(global.last_item.object_index == ObjectBauxite) {

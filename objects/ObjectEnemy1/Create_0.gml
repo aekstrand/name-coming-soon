@@ -13,3 +13,5 @@ move_x = 0
 move_y = 0
 
 shooting = false;
+
+sprite_index = SpriteEnemy1;

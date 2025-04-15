@@ -23,3 +23,6 @@ vp_right = 0;
 vp_top = 0;
 vp_bottom = 0;
 
+cam = view_camera[0]; // Get the current camera
+current_zoom = 1;     // Start at 1 (no zoom)
+zoom_speed = 0.01;    // Adjust for faster or slower zoom
