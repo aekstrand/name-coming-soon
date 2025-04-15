@@ -4,86 +4,94 @@ if (!spawn_done) {
         safe_y = ObjectSafe.y;
     }
 
-    while (region < 4) {
-        count = 0;
-        region++;
+    for (var i = 0; i < array_length(enemy_spawn_data); i++) {
+        var enemy_obj = enemy_spawn_data[i][0];
+        var count = enemy_spawn_data[i][1];
 
-        while (count < enemies_per_region) {
-            valid_spawn = false;
+        var region = i div 2;
+if (enemy_obj == ObjectEnemy2) {
 
-            while (!valid_spawn) {
-                switch (region) {
-                    case 1: // t l
-                        enemy1_x = irandom_range(left_limit, 10000);
-                        enemy1_y = irandom_range(top_limit, 10000);
-                    break;
-                    case 2: // t r
-                        enemy1_x = irandom_range(10000, right_limit);
-                        enemy1_y = irandom_range(top_limit, 10000);
-                    break;
-                    case 3: // b l
-                        enemy1_x = irandom_range(left_limit, 10000);
-                        enemy1_y = irandom_range(10000, bottom_limit);
-                    break;
-                    case 4: // b r
-                        enemy1_x = irandom_range(10000, right_limit);
-                        enemy1_y = irandom_range(10000, bottom_limit);
-                    break;
-                }
+    var num_clusters = 15; 
+    var max_tries = 30;
+    var enemies_per_cluster = 11;
 
-                if (point_distance(enemy1_x, enemy1_y, safe_x, safe_y) > safe_distance) {
-                    valid_spawn = true;
-                    instance_create_layer(enemy1_x, enemy1_y, "Instances", ObjectEnemy1);
-                    count++;
-                }
+    for (var c = 0; c < num_clusters; c++) {
+        var cluster_valid = false;
+        var cluster_x, cluster_y;
+
+        while (!cluster_valid) {
+            var angle_deg;
+            switch (region) {
+                case REGION_NORTH:
+                    angle_deg = irandom(1) == 0 ? irandom_range(315, 359) : irandom_range(0, 45);
+                    break;
+                case REGION_EAST:
+                    angle_deg = irandom_range(45, 135);
+                    break;
+                case REGION_SOUTH:
+                    angle_deg = irandom_range(135, 225);
+                    break;
+                case REGION_WEST:
+                    angle_deg = irandom_range(225, 315);
+                    break;
+            }
+
+            var dist = irandom_range(spawn_radius_min, spawn_radius_max);
+            cluster_x = spawn_center_x + lengthdir_x(dist, angle_deg);
+            cluster_y = spawn_center_y + lengthdir_y(dist, angle_deg);
+
+            if (point_distance(cluster_x, cluster_y, safe_x, safe_y) > safe_distance) {
+                cluster_valid = true;
             }
         }
 
-        
-        // enemy 2 spawner
-        for (var i = 0; i < num_clusters; i++) {
-            cluster_valid = false;
+        for (var j = 0; j < enemies_per_cluster; j++) {
+            var tries = 0;
+            var spawn_valid = false;
 
-            while (!cluster_valid) {
-                switch (region) {
-                    case 1:
-                        cluster_x = irandom_range(left_limit, 10000);
-                        cluster_y = irandom_range(top_limit, 10000);
-                        break;
-                    case 2:
-                        cluster_x = irandom_range(10000, right_limit);
-                        cluster_y = irandom_range(top_limit, 10000);
-                        break;
-                    case 3:
-                        cluster_x = irandom_range(left_limit, 10000);
-                        cluster_y = irandom_range(10000, bottom_limit);
-                        break;
-                    case 4:
-                        cluster_x = irandom_range(10000, right_limit);
-                        cluster_y = irandom_range(10000, bottom_limit);
-                        break;
+            while (!spawn_valid && tries < max_tries) {
+                tries++;
+                var ex = cluster_x + irandom_range(-300, 300);
+                var ey = cluster_y + irandom_range(-300, 300);
+
+                if (point_distance(ex, ey, safe_x, safe_y) > safe_distance &&
+                    instance_position(ex, ey, enemy_obj) == noone) {
+                    spawn_valid = true;
+                    instance_create_layer(ex, ey, "Instances", enemy_obj);
                 }
+            }
+        }
+    }
+    continue; 
+}
 
-                if (point_distance(cluster_x, cluster_y, safe_x, safe_y) > safe_distance) {
-                    cluster_valid = true;
-                    enemies_per_cluster = irandom_range(7, 12);
 
-                    for (var j = 0; j < enemies_per_cluster; j++) {
-                        spawn_valid = false;
-                        tries = 0;
+        var spawned = 0;
+        while (spawned < count) {
+            var angle_deg;
 
-                        while (!spawn_valid && tries < max_tries) {
-                            tries++;
-                            enemy2_x = cluster_x + irandom_range(-400, 400);
-                            enemy2_y = cluster_y + irandom_range(-400, 400);
+            switch (region) {
+case REGION_NORTH:
+angle_deg = irandom(1) == 0 ? irandom_range(315, 359) : irandom_range(0, 45);
+break;
+case REGION_EAST:
+angle_deg = irandom_range(45, 135);
+break;
+case REGION_SOUTH:
+angle_deg = irandom_range(135, 225);
+break;
+case REGION_WEST:
+angle_deg = irandom_range(225, 315);
+break;
+}
 
-                            if (instance_position(enemy2_x, enemy2_y, ObjectEnemy2) == noone) {
-                                spawn_valid = true;
-                                instance_create_layer(enemy2_x, enemy2_y, "Instances", ObjectEnemy2);
-                            }
-                        }
-                    }
-                }
+            var dist = irandom_range(spawn_radius_min, spawn_radius_max);
+            var x_pos = spawn_center_x + lengthdir_x(dist, angle_deg);
+            var y_pos = spawn_center_y + lengthdir_y(dist, angle_deg);
+
+            if (point_distance(x_pos, y_pos, safe_x, safe_y) > safe_distance) {
+                instance_create_layer(x_pos, y_pos, "Instances", enemy_obj);
+                spawned++;
             }
         }
     }
