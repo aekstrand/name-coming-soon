@@ -1,0 +1,1 @@
+global.can_walk = true; //after item is picked up, player is allowed to walk again

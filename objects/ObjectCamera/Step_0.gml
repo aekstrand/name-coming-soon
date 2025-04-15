@@ -12,9 +12,33 @@ if (instance_exists(follow)) {
 	y = clamp(y, cam_min_y, cam_max_y)
 }
 
-vp_left = x-(cam_width*0.5);
+// Step Event
+if (!global.can_walk) {
+	current_zoom -= zoom_speed / 2 * (delta_time / 20000);
+	if (current_zoom > 0.5) {
+		current_zoom -= zoom_speed / 2 * (delta_time / 20000);
+	}
+	if (current_zoom < 0.2) current_zoom = 0.2;
+} else if (current_zoom < 1) {
+	current_zoom += zoom_speed * (delta_time / 20000);
+	if (current_zoom > 1) current_zoom = 1;
+}
+
+// Clamp so it doesn’t overshoot
+//if (current_zoom < global.target_zoom) current_zoom = global.target_zoom;
+
+var w = display_get_width() * current_zoom;
+var h = display_get_height() * current_zoom;
+
+var cx = camera_get_view_x(cam) + camera_get_view_width(cam)/2;
+var cy = camera_get_view_y(cam) + camera_get_view_height(cam)/2;
+
+camera_set_view_size(cam, w, h);
+//camera_set_view_pos(cam, cx - w/2, cy - h/2);
+
+vp_left = x-(cam_width*0.5*current_zoom);
 vp_right = x+(cam_width*0.5);
-vp_top = y-(cam_height*0.5);
+vp_top = y-(cam_height*0.5*current_zoom);
 vp_bottom = y+(cam_height*0.5);
 
-camera_set_view_pos(view_camera[0], vp_left, vp_top)
+camera_set_view_pos(cam, vp_left, vp_top)
