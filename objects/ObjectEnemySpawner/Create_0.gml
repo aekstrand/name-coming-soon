@@ -26,10 +26,10 @@ REGION_WEST = 3;
 enemy_spawn_data = [
     [ObjectEnemy1, 30],
     [ObjectEnemy2, 40],
-    [ObjectEnemy3, 30],
+    [ObjectEnemy3, 35],
     [ObjectEnemy4, 16],
-    [ObjectEnemy5, 40],
-    [ObjectEnemy6, 40],
+    [ObjectEnemy5, 50],
+    [ObjectEnemy6, 35],
     [ObjectEnemy7, 40],
     [ObjectEnemy8, 40]
 ];
