@@ -27,4 +27,4 @@ if(global.wood_in_inventory > 0) {
 	global.wood_in_inventory = 0;
 }
 global.time = 0;
-global.health = 4;
+global.health = 100;

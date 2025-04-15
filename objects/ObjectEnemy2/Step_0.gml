@@ -11,7 +11,7 @@ switch (state) {
             break;
         }
 
-        spd = 1.5;
+        spd = 5;
         dir = point_direction(x, y, ObjectRobot.x, ObjectRobot.y);
         move_x = lengthdir_x(spd, dir);
         move_y = lengthdir_y(spd, dir);
@@ -44,7 +44,7 @@ switch (state) {
 
         if (!attacking) {
             attacking = true;
-            global.health--;
+            global.health -= 10;
             alarm[0] = 60;
         }
 
