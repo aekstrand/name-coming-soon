@@ -31,6 +31,9 @@ global.quartz_in_base = 0;
 global.sulphur_in_base = 0;
 global.uranium_in_base = 0;
 global.wood_in_base = 0;
+global.inventory = [0, 0, 0, 0, 0, 0];
+global.inventory_size = 0; //in the future, may be useful for "scrolling through" your inventory
+global.draw_crafting = false;
 sprite_index = SpriteRobotFront;
 /*for(var i = 0; i < 1000; i++) {
 	instance_create_layer(random_range(0, room_width), random_range(0, room_height), "Instances", ObjectBauxite);
