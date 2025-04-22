@@ -1,4 +1,4 @@
-if(global.wood_in_inventory > 0) {
+if(global.inventory_size > 0) {
 	global.bauxite_in_base += global.bauxite_in_inventory;
 	global.bauxite_in_inventory = 0;
 	global.clay_in_base += global.clay_in_inventory;
@@ -26,5 +26,7 @@ if(global.wood_in_inventory > 0) {
 	global.wood_in_base += global.wood_in_inventory;
 	global.wood_in_inventory = 0;
 }
+global.inventory = [0, 0, 0, 0, 0, 0];
+global.inventory_size = 0;
 global.time = 0;
 global.health = 4;

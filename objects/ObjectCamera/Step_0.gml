@@ -12,6 +12,7 @@ if (instance_exists(follow)) {
 	y = clamp(y, cam_min_y, cam_max_y)
 }
 
+var defaultZoom = 1;
 // Step Event
 if (!global.can_walk) {
 	current_zoom -= zoom_speed / 2 * (delta_time / 20000);
@@ -19,9 +20,9 @@ if (!global.can_walk) {
 		current_zoom -= zoom_speed / 2 * (delta_time / 20000);
 	}
 	if (current_zoom < 0.2) current_zoom = 0.2;
-} else if (current_zoom < 1) {
+} else if (current_zoom < defaultZoom) {
 	current_zoom += zoom_speed * (delta_time / 20000);
-	if (current_zoom > 1) current_zoom = 1;
+	if (current_zoom > defaultZoom) current_zoom = defaultZoom;
 }
 
 // Clamp so it doesn’t overshoot
