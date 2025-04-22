@@ -19,9 +19,9 @@ if (!global.can_walk) {
 		current_zoom -= zoom_speed / 2 * (delta_time / 20000);
 	}
 	if (current_zoom < 0.2) current_zoom = 0.2;
-} else if (current_zoom < 1) {
+} else if (current_zoom < 4) {
 	current_zoom += zoom_speed * (delta_time / 20000);
-	if (current_zoom > 1) current_zoom = 1;
+	if (current_zoom > 4) current_zoom = 4;
 }
 
 // Clamp so it doesn’t overshoot

@@ -174,30 +174,12 @@ function move_storm_particles() {
 		global.emitterArray = [];
 	}
 	
-	// Destroy existing emitters
-	while (array_length(global.emitterArray) > 0) {
-		var emitter = array_pop(global.emitterArray);
-		part_emitter_destroy(global.ps, emitter);
-		// Do NOT call instance_destroy on emitters — they aren't instances
-	}
-//	part_system_destroy(global.ps);
-//	global.ps = part_system_create();
-//	part_system_draw_order(global.ps, true);
-
-	// Create new emitters
-	for (var i = 0; i < 100; i++) {
-		for (var j = 0; j < 3; j++) {
-			var position;
-			switch (global.storm_location) {
-				case 0: position = random_point_in_triangle(0, 0, 20032, 0, 10016, 10016); break;
-				case 1: position = random_point_in_triangle(0, 0, 0, 20032, 10016, 10016); break;
-				case 2: position = random_point_in_triangle(0, 20032, 20032, 20032, 10016, 10016); break;
-				case 3: position = random_point_in_triangle(20032, 0, 20032, 20032, 10016, 10016); break;
-			}
-			var newEmitter = create_particle_by_id(j, position[0], position[1]);
-			array_push(global.emitterArray, newEmitter);
-		}
-	}
+	array_foreach(global.emitterArray, function(value) {
+		var position;
+		position = random_point_in_biome(global.storm_location);
+		value.x = position[0];
+		value.y = position[1];
+	});
 }
 
 global.storm_location = 0;
@@ -216,16 +198,24 @@ spawn_desert();
 spawn_marsh();
 spawn_peaks();
 spawn_volcano();
-move_storm_particles();
+	// Create new emitters
+	for (var i = 0; i < 100; i++) {
+		for (var j = 0; j < 3; j++) {
+			var position = random_point_in_biome(global.storm_location);
+			var newEmitter = create_particle_by_id(j, position[0], position[1]);
+			show_debug_message("array length: " + string(array_length(global.emitterArray)));
+			array_push(global.emitterArray, newEmitter);
+		}
+	}
 
 //do not use without saving emitter to array
 function create_particle_by_id(id, x, y) {
 	if (id == 0) { //ElectricityEmitterS
-		return create_particle(global.electricityParticleType, x, y + 1200, 400, 1300, 2, ps_shape_rectangle, ps_distr_linear, 0.2, 0.5, time_source_units_seconds);
+		return create_particle(global.electricityParticleType, x, y, 400, 400, 2, ps_shape_rectangle, ps_distr_linear, 0.2, 0.5, time_source_units_seconds);
 	} else if (id == 1) { //StormEmitter
-		return create_particle(global.stormParticleType, x, y, 5120, 0, 2, ps_shape_line, ps_distr_linear, -1, -1, time_source_units_frames);
+		return create_particle(global.stormParticleType, x, y, 400, 0, 2, ps_shape_line, ps_distr_linear, -1, -1, time_source_units_frames);
 	} else if (id == 2) { //HazeEmitter
-		return create_particle(global.hazeParticleType, x, y + 1200, 500, 1200, 1, ps_shape_rectangle, ps_distr_linear, 8, 8, time_source_units_frames);
+		return create_particle(global.hazeParticleType, x, y, 500, 500, 1, ps_shape_rectangle, ps_distr_linear, 8, 8, time_source_units_frames);
 	}
 }
 
@@ -234,25 +224,44 @@ function create_particle(particleType, xPos, yPos, xSize, ySize, particlesPerSte
 	var emitter = part_emitter_create(global.ps);
 //	part_emitter_region(global.ps, emitter, -xSize/2, xSize/2, -ySize/2, ySize/2, shape, distribution);
 	part_emitter_region(global.ps, emitter, xPos, xPos + xSize, yPos, yPos + ySize, shape, distribution);
+	part_emitter_stream(global.ps, emitter, particleType, 0);
 	part_emitter_stream(global.ps, emitter, particleType, particlesPerStep);
 	if (intervalMin != -1 && intervalMax != -1) {
 		part_emitter_interval(global.ps, emitter, intervalMin, intervalMax, timeUnit);
 	}
-	return emitter;
+	return {
+        id: emitter,
+        x: xPos,
+        y: yPos,
+		particlesPerStep: particlesPerStep,
+        type: particleType,
+        active: true
+	}
 }
 
-function random_point_in_triangle(ax, ay, bx, by, cx, cy) {
-    var u = random(1);
-    var v = random(1);
-    
-    if (u + v > 1) {
-        u = 1 - u;
-        v = 1 - v;
-    }
-    
-    var xPos = (1 - u - v) * ax + u * bx + v * cx;
-    var yPos = (1 - u - v) * ay + u * by + v * cy;
-    
-    return [xPos, yPos]; // Returns an array containing x and y
+function random_point_in_biome(biome) {
+	maxR = 10000;
+	minR = 0;
+//	show_debug_message(minR);
+	minA = 0;
+	maxA = 0;
+	if(biome == 0) {
+		minA = 225;
+		maxA = 315;
+	} else if(biome == 1) {
+		minA = 135;
+		maxA = 225;
+	} else if(biome == 2) {
+		minA = 45;
+		maxA = 135;
+	} else {
+		minA = -45;
+		maxA = 45;
+	}
+	finalR = shifted_random_range(minR, maxR);
+	finalA = random_range(minA, maxA)*pi/180;
+	
+	return[finalR*cos(finalA) + room_width/2, finalR*sin(finalA) + room_height/2];
 }
 
+show_debug_message(">> Create event ran. emitterArray length: " + string(array_length(global.emitterArray)));
