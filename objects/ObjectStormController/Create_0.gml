@@ -172,6 +172,7 @@ function clear_biome(biome_list) {
 function move_storm_particles() {
 	if (!is_array(global.emitterArray)) {
 		global.emitterArray = [];
+		show_debug_message("emitterArray reset");
 	}
 	
 	array_foreach(global.emitterArray, function(value) {
@@ -198,15 +199,16 @@ spawn_desert();
 spawn_marsh();
 spawn_peaks();
 spawn_volcano();
-	// Create new emitters
-	for (var i = 0; i < 100; i++) {
-		for (var j = 0; j < 3; j++) {
-			var position = random_point_in_biome(global.storm_location);
-			var newEmitter = create_particle_by_id(j, position[0], position[1]);
-			show_debug_message("array length: " + string(array_length(global.emitterArray)));
-			array_push(global.emitterArray, newEmitter);
-		}
+
+for (var i = 0; i < 0; i++) {
+	for (var j = 0; j < 3; j++) {
+		var position = random_point_in_biome(global.storm_location);
+		var newEmitter = create_particle_by_id(j, position[0], position[1]);
+		show_debug_message("array length: " + string(array_length(global.emitterArray)));
+		array_push(global.emitterArray, newEmitter);
 	}
+}
+show_debug_message("array length2: " + string(array_length(global.emitterArray)));
 
 //do not use without saving emitter to array
 function create_particle_by_id(id, x, y) {
@@ -218,6 +220,8 @@ function create_particle_by_id(id, x, y) {
 		return create_particle(global.hazeParticleType, x, y, 500, 500, 1, ps_shape_rectangle, ps_distr_linear, 8, 8, time_source_units_frames);
 	}
 }
+show_debug_message("array length3: " + string(array_length(global.emitterArray)));
+
 
 //do not use without saving emitter to array
 function create_particle(particleType, xPos, yPos, xSize, ySize, particlesPerStep, shape, distribution, intervalMin, intervalMax, timeUnit) {
@@ -239,10 +243,12 @@ function create_particle(particleType, xPos, yPos, xSize, ySize, particlesPerSte
 	}
 }
 
+show_debug_message("array length4: " + string(array_length(global.emitterArray)));
+
+
 function random_point_in_biome(biome) {
 	maxR = 10000;
 	minR = 0;
-//	show_debug_message(minR);
 	minA = 0;
 	maxA = 0;
 	if(biome == 0) {
@@ -264,4 +270,3 @@ function random_point_in_biome(biome) {
 	return[finalR*cos(finalA) + room_width/2, finalR*sin(finalA) + room_height/2];
 }
 
-show_debug_message(">> Create event ran. emitterArray length: " + string(array_length(global.emitterArray)));

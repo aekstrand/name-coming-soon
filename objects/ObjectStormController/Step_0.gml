@@ -2,8 +2,9 @@
 if (!is_array(global.emitterArray)) {
     show_debug_message("!! emitterArray is not an array in Step");
 } else {
-    show_debug_message(">> Step: emitterArray length: " + string(array_length(global.emitterArray)));
+//    show_debug_message(">> Step: emitterArray length: " + string(array_length(global.emitterArray)));
 }
+show_debug_message("array length5: " + string(array_length(global.emitterArray)));
 
 
 global.storm_timer += delta_time;
@@ -34,6 +35,7 @@ array_foreach(global.emitterArray, function(value) {
 		if (value.id >= 0 && part_emitter_exists(global.ps, value.id)) {
 			if (point_distance(value.x, value.y, ObjectRobot.x, ObjectRobot.y) > renderDistance && value.active) {
 				part_emitter_stream(global.ps, value.id, value.type, 0);
+				show_debug_message("disabled");
 				value.active = false;
 			} else if (point_distance(value.x, value.y, ObjectRobot.x, ObjectRobot.y) < renderDistance && !value.active) {
 				part_emitter_stream(global.ps, value.id, value.type, value.particlesPerStep);
@@ -44,4 +46,3 @@ array_foreach(global.emitterArray, function(value) {
 		}
 	}
 });
-
