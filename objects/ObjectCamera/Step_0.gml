@@ -28,8 +28,8 @@ if (!global.can_walk) {
 // Clamp so it doesn’t overshoot
 //if (current_zoom < global.target_zoom) current_zoom = global.target_zoom;
 
-var w = display_get_width() * current_zoom;
-var h = display_get_height() * current_zoom;
+var w = RES_W* current_zoom;
+var h = RES_H * current_zoom;
 
 var cx = camera_get_view_x(cam) + camera_get_view_width(cam)/2;
 var cy = camera_get_view_y(cam) + camera_get_view_height(cam)/2;
