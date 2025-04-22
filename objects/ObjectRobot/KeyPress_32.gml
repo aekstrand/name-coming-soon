@@ -43,7 +43,7 @@ if(instance_exists(global.last_item) && global.last_item.id != self.id) {
 				global.wood_in_inventory += 1;
 			}
 			global.inventory_size += 1;
-			global.inventory[global.inventory_size - 1] = global.last_item.id;
+			global.inventory[global.inventory_size - 1] = global.last_item.id.sprite_index;
 			instance_destroy(global.last_item.id);
 			global.last_item = self;
 		}
