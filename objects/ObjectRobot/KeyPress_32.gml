@@ -6,6 +6,10 @@ if(instance_exists(global.last_item) && global.last_item.id != self.id) {
 			global.menu_size = 7;
 			global.draw_crafting = !global.draw_crafting;
 			global.can_walk = !global.can_walk;
+		} else if(global.last_item.object_index == ObjectRocket) {
+			global.menu_size = 4;
+			global.draw_crafting = !global.draw_crafting;
+			global.can_walk = !global.can_walk;
 		} else if(global.last_item.object_index == ObjectBattery) {
 			global.can_walk = false; //pauses the player while picking up item
 			alarm[8] = 40;
