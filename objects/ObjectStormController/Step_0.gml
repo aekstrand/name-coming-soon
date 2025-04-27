@@ -4,8 +4,8 @@ if (!is_array(global.emitterArray)) {
 } else {
 //    show_debug_message(">> Step: emitterArray length: " + string(array_length(global.emitterArray)));
 }
-show_debug_message("array length5: " + string(array_length(global.emitterArray)));
-
+//show_debug_message("array length5: " + string(array_length(global.emitterArray)));
+// sorry if that's important it was clogging up the debug log
 
 global.storm_timer += delta_time;
 //show_debug_message(global.storm_timer);

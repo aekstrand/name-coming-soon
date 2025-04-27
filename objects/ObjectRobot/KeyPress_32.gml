@@ -1,9 +1,15 @@
 // INTERACT BUTTON
 // Check if still near item
 if(instance_exists(global.last_item) && global.last_item.id != self.id) {
-	if(sqrt(power(x-global.last_item.id.x, 2) + power(y-global.last_item.id.y, 2)) < 100 && global.can_walk) {
+	if(sqrt(power(x-global.last_item.id.x, 2) + power(y-global.last_item.id.y, 2)) < 100 && (global.can_walk || global.draw_crafting)) {
 		if(global.last_item.object_index == ObjectCraftingTable) {
-			global.menu_size = 7;
+			global.menu = 0;
+			global.menu_size = 8;
+			global.draw_crafting = !global.draw_crafting;
+			global.can_walk = !global.can_walk;
+		} else if(global.last_item.object_index == ObjectRocket) {
+			global.menu = 1;
+			global.menu_size = 5;
 			global.draw_crafting = !global.draw_crafting;
 			global.can_walk = !global.can_walk;
 		} else if(global.last_item.object_index == ObjectBattery) {
