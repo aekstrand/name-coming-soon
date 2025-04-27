@@ -45,7 +45,7 @@
     {"name":"HazeEmitter","path":"particlelib/HazeEmitter/HazeEmitter.yy",},
   ],
   "MetaData":{
-    "IDEVersion":"2024.13.0.190",
+    "IDEVersion":"2024.13.1.193",
   },
   "name":"name-coming-soon",
   "resources":[
@@ -78,7 +78,6 @@
     {"id":{"name":"ObjectProjectile","path":"objects/ObjectProjectile/ObjectProjectile.yy",},},
     {"id":{"name":"ObjectQuartz","path":"objects/ObjectQuartz/ObjectQuartz.yy",},},
     {"id":{"name":"ObjectRobot","path":"objects/ObjectRobot/ObjectRobot.yy",},},
-    {"id":{"name":"ObjectRocket","path":"objects/ObjectRocket/ObjectRocket.yy",},},
     {"id":{"name":"ObjectSafe","path":"objects/ObjectSafe/ObjectSafe.yy",},},
     {"id":{"name":"ObjectSlam","path":"objects/ObjectSlam/ObjectSlam.yy",},},
     {"id":{"name":"ObjectStormController","path":"objects/ObjectStormController/ObjectStormController.yy",},},
