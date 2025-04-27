@@ -17,12 +17,6 @@ if (global.can_walk) {
 		sprite_index = SpriteRobotFront;
 	}
 	//show_debug_message("player pos: " + string(x) + ", " + string(y));
-} else if (global.draw_crafting) {
-	if(keyboard_check(ord("W")) && global.menu_index > 1) {
-		global.menu_index -= 1;
-	} else if(keyboard_check(ord("S")) && global.menu_index < global.menu_size) {
-		global.menu_index += 1;
-	}
 }
 
 

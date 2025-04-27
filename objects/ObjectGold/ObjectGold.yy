@@ -4,14 +4,16 @@
   "eventList":[],
   "managed":true,
   "name":"ObjectGold",
-  "overriddenProperties":[],
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"ObjectInteractableParent","path":"objects/ObjectInteractableParent/ObjectInteractableParent.yy",},"propertyId":{"name":"variable_item_id","path":"objects/ObjectInteractableParent/ObjectInteractableParent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"11",},
+  ],
   "parent":{
     "name":"Objects",
     "path":"folders/Objects.yy",
   },
   "parentObjectId":{
-    "name":"ObjectPickupParent",
-    "path":"objects/ObjectPickupParent/ObjectPickupParent.yy",
+    "name":"ObjectInteractableParent",
+    "path":"objects/ObjectInteractableParent/ObjectInteractableParent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

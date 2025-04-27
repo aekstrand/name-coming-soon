@@ -1,31 +1,37 @@
 if(global.inventory_size > 0) {
-	global.bauxite_in_base += global.bauxite_in_inventory;
-	global.bauxite_in_inventory = 0;
-	global.clay_in_base += global.clay_in_inventory;
-	global.clay_in_inventory = 0;
-	global.copper_in_base += global.copper_in_inventory;
-	global.copper_in_inventory = 0;
-	global.diamond_in_base += global.diamond_in_inventory;
-	global.diamond_in_inventory = 0;
-	global.gold_in_base += global.gold_in_inventory;
-	global.gold_in_inventory = 0;
-	global.junk_in_base += global.junk_in_inventory;
-	global.junk_in_inventory = 0;
-	global.lithium_in_base += global.lithium_in_inventory;
-	global.lithium_in_inventory = 0;
-	global.oil_in_base += global.oil_in_inventory;
-	global.oil_in_inventory = 0;
-	global.platinum_in_base += global.platinum_in_inventory;
-	global.platinum_in_inventory = 0;
-	global.quartz_in_base += global.quartz_in_inventory;
-	global.quartz_in_inventory = 0;
-	global.sulphur_in_base += global.sulphur_in_inventory;
-	global.sulphur_in_inventory = 0;
-	global.uranium_in_base += global.uranium_in_inventory;
-	global.uranium_in_inventory = 0;
-	global.wood_in_base += global.wood_in_inventory;
-	global.wood_in_inventory = 0;
+	for(var i = 0; i < 12; i++) {
+		global.resources_in_base[i] += global.resources_in_inventory[i];
+	}
+	
+	//legacy code just in case
+	//global.bauxite_in_base += global.bauxite_in_inventory;
+	//global.bauxite_in_inventory = 0;
+	//global.clay_in_base += global.clay_in_inventory;
+	//global.clay_in_inventory = 0;
+	//global.copper_in_base += global.copper_in_inventory;
+	//global.copper_in_inventory = 0;
+	//global.diamond_in_base += global.diamond_in_inventory;
+	//global.diamond_in_inventory = 0;
+	//global.gold_in_base += global.gold_in_inventory;
+	//global.gold_in_inventory = 0;
+	//global.junk_in_base += global.junk_in_inventory;
+	//global.junk_in_inventory = 0;
+	//global.lithium_in_base += global.lithium_in_inventory;
+	//global.lithium_in_inventory = 0;
+	//global.oil_in_base += global.oil_in_inventory;
+	//global.oil_in_inventory = 0;
+	//global.platinum_in_base += global.platinum_in_inventory;
+	//global.platinum_in_inventory = 0;
+	//global.quartz_in_base += global.quartz_in_inventory;
+	//global.quartz_in_inventory = 0;
+	//global.sulphur_in_base += global.sulphur_in_inventory;
+	//global.sulphur_in_inventory = 0;
+	//global.uranium_in_base += global.uranium_in_inventory;
+	//global.uranium_in_inventory = 0;
+	//global.wood_in_base += global.wood_in_inventory;
+	//global.wood_in_inventory = 0;
 }
+global.resources_in_inventory = [0,0,0,0,0,0,0,0,0,0,0,0];
 global.inventory = [0, 0, 0, 0, 0, 0];
 global.inventory_size = 0;
 global.time = 0;

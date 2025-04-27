@@ -10,8 +10,8 @@
     "path":"folders/Objects.yy",
   },
   "parentObjectId":{
-    "name":"ObjectPickupParent",
-    "path":"objects/ObjectPickupParent/ObjectPickupParent.yy",
+    "name":"ObjectInteractableParent",
+    "path":"objects/ObjectInteractableParent/ObjectInteractableParent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

@@ -5,32 +5,40 @@ global.yDir = 0;
 global.health = 4;
 global.time = 0;
 global.last_item = self;
-global.bauxite_in_inventory = 0;   //yknow if this were a fully-fledged game it would be way better to convert this to a series of arrays
-global.clay_in_inventory = 0;      //but honestly at this point doing that isn't worth it
-global.copper_in_inventory = 0;
-global.diamond_in_inventory = 0;
-global.gold_in_inventory = 0;
-global.junk_in_inventory = 0;
-global.lithium_in_inventory = 0;
-global.oil_in_inventory = 0;
-global.platinum_in_inventory = 0;
-global.quartz_in_inventory = 0;
-global.sulphur_in_inventory = 0;
-global.uranium_in_inventory = 0;
-global.wood_in_inventory = 0;
-global.bauxite_in_base = 0;
-global.clay_in_base = 0;
-global.copper_in_base = 0;
-global.diamond_in_base = 0;
-global.gold_in_base = 0;
-global.junk_in_base = 0;
-global.lithium_in_base = 0;
-global.oil_in_base = 0;
-global.platinum_in_base = 0;
-global.quartz_in_base = 0;
-global.sulphur_in_base = 0;
-global.uranium_in_base = 0;
-global.wood_in_base = 0;
+global.item_id = -1;
+global.debug_ids = ["Copper","Plant Matter (Wood)","Sulphur","Quartz","Aluminum","Clay","Lithium","Oil","Platinum","Uranium","Diamond","Gold"];
+global.sprite_ids = [SpriteCopper,SpriteWood,SpriteSulphur,SpriteQuartz,SpriteBauxite,SpriteClay,SpriteLithium,SpriteOil,SpritePlatinum,SpriteUranium,SpriteDiamond,SpriteGold];
+global.resources_in_inventory = [0,0,0,0,0,0,0,0,0,0,0,0];
+global.resources_in_base = [0,0,0,0,0,0,0,0,0,0,0,0];
+
+//legacy variables just in case
+//global.bauxite_in_inventory = 0;
+//global.clay_in_inventory = 0;
+//global.copper_in_inventory = 0;
+//global.diamond_in_inventory = 0;
+//global.gold_in_inventory = 0;
+//global.junk_in_inventory = 0;
+//global.lithium_in_inventory = 0;
+//global.oil_in_inventory = 0;
+//global.platinum_in_inventory = 0;
+//global.quartz_in_inventory = 0;
+//global.sulphur_in_inventory = 0;
+//global.uranium_in_inventory = 0;
+//global.wood_in_inventory = 0;
+//global.bauxite_in_base = 0;
+//global.clay_in_base = 0;
+//global.copper_in_base = 0;
+//global.diamond_in_base = 0;
+//global.gold_in_base = 0;
+//global.junk_in_base = 0;
+//global.lithium_in_base = 0;
+//global.oil_in_base = 0;
+//global.platinum_in_base = 0;
+//global.quartz_in_base = 0;
+//global.sulphur_in_base = 0;
+//global.uranium_in_base = 0;
+//global.wood_in_base = 0;
+
 global.inventory = [0, 0, 0, 0, 0, 0];
 global.inventory_size = 0; //in the future, may be useful for "scrolling through" your inventory
 global.menu = 0;
@@ -76,4 +84,28 @@ global.recipe_text = [
 	["ERROR: This should not be visible!","null"],
 	["ERROR: This should not be visible!","null"],
 	["ERROR: This should not be visible!","null"],
-]]
+]];
+
+//  [c,p,s,q,a,c,l,o,p,u,d,g]
+global.recipe_cost = [
+[
+	[0,0,2,0,0,0,0,1,0,0,0,0],
+	[0,2,0,0,1,0,0,0,0,0,0,0],
+	[1,1,0,2,0,0,0,0,0,0,0,0],
+	[2,0,0,0,0,0,1,0,0,0,0,0],
+	[0,1,0,0,1,0,0,1,0,0,0,1],
+	[1,0,0,0,0,0,1,0,0,0,1,0],
+	[0,0,0,1,0,0,1,0,1,0,0,0],
+	[0,0,2,0,0,0,0,1,0,1,0,0],
+],
+[
+	[1,1,1,1,0,0,0,0,0,0,0,0],
+	[0,2,0,0,1,2,0,0,0,0,0,0],
+	[0,0,2,0,0,0,0,1,0,2,0,0],
+	[0,0,0,2,1,0,0,1,2,0,0,0],
+	[2,0,0,0,0,0,2,0,0,0,2,2],
+	[0,0,0,0,0,0,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0,0,0],
+]];
+global.recipes_completed = [false,false,false,false,false,false,false,false,false,false,false,false];
