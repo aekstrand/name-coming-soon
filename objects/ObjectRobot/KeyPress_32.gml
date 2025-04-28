@@ -17,7 +17,7 @@ if(instance_exists(global.last_item) && global.last_item.id != self.id) {
 		} else if(global.last_item.object_index == ObjectBattery) {
 			global.can_walk = false; //pauses the player while picking up item
 			alarm[8] = 40;
-			global.health += 2;
+			global.health += 4;
 			instance_destroy(global.last_item.id);
 			global.last_item = self;
 		} else if(global.item_id != -1 && global.inventory_size < 6) {

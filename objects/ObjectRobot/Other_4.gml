@@ -1,4 +1,4 @@
-global.speed = 3;
+global.speed = 6;
 global.can_walk = true;
 global.xDir = 0;
 global.yDir = 0;

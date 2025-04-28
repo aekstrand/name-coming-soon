@@ -16,6 +16,10 @@ if (global.can_walk) {
 		yDir = global.speed;
 		sprite_index = SpriteRobotFront;
 	}
+	if(xDir != 0 && yDir != 0) {
+		xDir /= sqrt(2);
+		yDir /= sqrt(2);
+	}
 	//show_debug_message("player pos: " + string(x) + ", " + string(y));
 }
 

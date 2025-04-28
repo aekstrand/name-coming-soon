@@ -99,7 +99,7 @@ function spawn_item(biome, rare, objId, list) {
 	if(rare) {
 		minR = 5000;
 	} else {
-		minR = 320;
+		minR = 1000;
 	}
 //	show_debug_message(minR);
 	minA = 0;
@@ -123,47 +123,47 @@ function spawn_item(biome, rare, objId, list) {
 }
 
 function spawn_desert() {
-	for(var i = 0; i < 100; i++) {
+	for(var i = 0; i < 50; i++) {
 		spawn_item(0, false, ObjectQuartz, global.desert_items);
 		spawn_item(0, false, ObjectWood, global.desert_items);
 		spawn_item(0, false, ObjectOil, global.desert_items);
 		if(i%2==0) spawn_item(0, true, ObjectGold, global.desert_items);
-		if(i%10==0) spawn_item(0, false, ObjectBattery, global.desert_items);
+		if(i%5==0) spawn_item(0, false, ObjectBattery, global.desert_items);
 	}
 }
 
 function spawn_marsh() {
-	for(var i = 0; i < 100; i++) {
+	for(var i = 0; i < 50; i++) {
 		spawn_item(1, false, ObjectCopper, global.marsh_items);
 		spawn_item(1, false, ObjectWood, global.marsh_items);
 		spawn_item(1, false, ObjectClay, global.marsh_items);
 		if(i%2==0) spawn_item(1, true, ObjectUranium, global.marsh_items);
-		if(i%10==0) spawn_item(1, false, ObjectBattery, global.marsh_items);
+		if(i%5==0) spawn_item(1, false, ObjectBattery, global.marsh_items);
 	}
 }
 
 function spawn_peaks() {
-	for(var i = 0; i < 100; i++) {
+	for(var i = 0; i < 50; i++) {
 		spawn_item(2, false, ObjectCopper, global.peaks_items);
 		spawn_item(2, false, ObjectSulphur, global.peaks_items);
 		spawn_item(2, false, ObjectBauxite, global.peaks_items);
 		if(i%2==0) spawn_item(2, true, ObjectPlatinum, global.peaks_items);
-		if(i%10==0) spawn_item(2, false, ObjectBattery, global.peaks_items);
+		if(i%5==0) spawn_item(2, false, ObjectBattery, global.peaks_items);
 	}
 }
 
 function spawn_volcano() {
-	for(var i = 0; i < 100; i++) {
+	for(var i = 0; i < 50; i++) {
 		spawn_item(3, false, ObjectQuartz, global.volcano_items);
 		spawn_item(3, false, ObjectSulphur, global.volcano_items);
 		spawn_item(3, false, ObjectLithium, global.volcano_items);
 		if(i%2==0) spawn_item(3, true, ObjectDiamond, global.volcano_items);
-		if(i%10==0) spawn_item(3, false, ObjectBattery, global.volcano_items);
+		if(i%5==0) spawn_item(3, false, ObjectBattery, global.volcano_items);
 	}
 }
 
 function clear_biome(biome_list) {
-	for(var i = 0; i < 720; i++) {
+	for(var i = 0; i < 185; i++) {
 		instance_destroy(array_pop(biome_list));
 	}
 }
@@ -185,10 +185,10 @@ function move_storm_particles() {
 
 global.storm_location = 0;
 global.storm_timer = 0;
-global.desert_items = array_create(360);
-global.marsh_items = array_create(360);
-global.peaks_items = array_create(360);
-global.volcano_items = array_create(360);
+global.desert_items = array_create(185);
+global.marsh_items = array_create(185);
+global.peaks_items = array_create(185);
+global.volcano_items = array_create(185);
 
 //storm_sys = StormPS;
 //storm_emitter = part_emitter_create(storm_sys);
