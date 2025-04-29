@@ -24,7 +24,7 @@ if(global.draw_crafting) {
 			}
 		}
 	}
-	if(global.recipes_completed[global.menu_index]) {
+	if(global.recipes_completed[global.menu][global.menu_index]) {
 		draw_text(1250, 600 + (j*50), "Successfully crafted!");
 		global.can_craft = false;
 	} else if(!has_mats) {
