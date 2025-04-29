@@ -2,7 +2,8 @@ global.speed = 6;
 global.can_walk = true;
 global.xDir = 0;
 global.yDir = 0;
-global.health = 4;
+global.maxHealth = 4;
+global.health = global.maxHealth;
 global.time = 0;
 global.last_item = self;
 global.item_id = -1;
@@ -109,3 +110,13 @@ global.recipe_cost = [
 	[0,0,0,0,0,0,0,0,0,0,0,0],
 ]];
 global.recipes_completed = [false,false,false,false,false,false,false,false,false,false,false,false];
+
+global.takeDamage = function(damage) {
+	global.health -= damage;
+	if (random(2) > 1) {
+		audio_play_sound(sndRobotHit1, 0, false);
+	} else {
+		audio_play_sound(sndRobotHit2, 0, false);
+	}
+	
+}

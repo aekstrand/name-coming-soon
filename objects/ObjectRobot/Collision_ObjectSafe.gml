@@ -35,4 +35,4 @@ global.resources_in_inventory = [0,0,0,0,0,0,0,0,0,0,0,0];
 global.inventory = [0, 0, 0, 0, 0, 0];
 global.inventory_size = 0;
 global.time = 0;
-global.health = 4;
+global.health = global.maxHealth;

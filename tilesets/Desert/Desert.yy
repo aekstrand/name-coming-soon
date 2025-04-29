@@ -17,7 +17,7 @@
   "out_tilevborder":2,
   "parent":{
     "name":"Tile Sets",
-    "path":"folders/Tile Sets.yy",
+    "path":"folders/Sprites/Tile Sets.yy",
   },
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",

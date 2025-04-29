@@ -28,7 +28,8 @@ switch (state) {
         spd = 0;
         if (!attacking) {
             attacking = true;
-            global.health -= 1;
+			global.takeDamage(1);
+            //global.health -= 1;
             alarm[0] = 60;
         }
 

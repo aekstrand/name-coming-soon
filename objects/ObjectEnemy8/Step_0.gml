@@ -24,7 +24,8 @@ if (wander_pause_timer > 0) {
 
 
 if (place_meeting(x, y, ObjectRobot) && !attacking) {
-    global.health -= 1;
+	global.takeDamage(1);
+//    global.health -= 1;
     attacking = true;
     alarm[0] = 80;
 }

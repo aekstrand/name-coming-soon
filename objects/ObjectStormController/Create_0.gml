@@ -176,10 +176,11 @@ function move_storm_particles() {
 	}
 	
 	array_foreach(global.emitterArray, function(value) {
-		var position;
-		position = random_point_in_biome(global.storm_location);
+		var position = random_point_in_biome(global.storm_location);
 		value.x = position[0];
 		value.y = position[1];
+		
+		part_emitter_region(global.ps, value.id, value.x, value.x + value.xSize, value.y, value.y + value.ySize, value.emitterShape, value.emitterDistribution);
 	});
 }
 
@@ -200,7 +201,7 @@ spawn_marsh();
 spawn_peaks();
 spawn_volcano();
 
-for (var i = 0; i < 0; i++) {
+for (var i = 0; i < 100; i++) {
 	for (var j = 0; j < 3; j++) {
 		var position = random_point_in_biome(global.storm_location);
 		var newEmitter = create_particle_by_id(j, position[0], position[1]);
@@ -215,7 +216,7 @@ function create_particle_by_id(id, x, y) {
 	if (id == 0) { //ElectricityEmitterS
 		return create_particle(global.electricityParticleType, x, y, 400, 400, 2, ps_shape_rectangle, ps_distr_linear, 0.2, 0.5, time_source_units_seconds);
 	} else if (id == 1) { //StormEmitter
-		return create_particle(global.stormParticleType, x, y, 400, 0, 2, ps_shape_line, ps_distr_linear, -1, -1, time_source_units_frames);
+		return create_particle(global.stormParticleType, x, y - 400, 400, 0, 2, ps_shape_line, ps_distr_linear, -1, -1, time_source_units_frames);
 	} else if (id == 2) { //HazeEmitter
 		return create_particle(global.hazeParticleType, x, y, 500, 500, 1, ps_shape_rectangle, ps_distr_linear, 8, 8, time_source_units_frames);
 	}
@@ -229,7 +230,6 @@ function create_particle(particleType, xPos, yPos, xSize, ySize, particlesPerSte
 //	part_emitter_region(global.ps, emitter, -xSize/2, xSize/2, -ySize/2, ySize/2, shape, distribution);
 	part_emitter_region(global.ps, emitter, xPos, xPos + xSize, yPos, yPos + ySize, shape, distribution);
 	part_emitter_stream(global.ps, emitter, particleType, 0);
-	part_emitter_stream(global.ps, emitter, particleType, particlesPerStep);
 	if (intervalMin != -1 && intervalMax != -1) {
 		part_emitter_interval(global.ps, emitter, intervalMin, intervalMax, timeUnit);
 	}
@@ -237,9 +237,13 @@ function create_particle(particleType, xPos, yPos, xSize, ySize, particlesPerSte
         id: emitter,
         x: xPos,
         y: yPos,
+		xSize: xSize,
+		ySize: ySize,
 		particlesPerStep: particlesPerStep,
         type: particleType,
-        active: true
+        active: false,
+		emitterShape: shape,
+		emitterDistribution: distribution
 	}
 }
 
