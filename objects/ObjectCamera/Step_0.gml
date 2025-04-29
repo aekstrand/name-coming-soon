@@ -12,9 +12,9 @@ if (instance_exists(follow)) {
 	y = clamp(y, cam_min_y, cam_max_y)
 }
 
-var defaultZoom = 7;
+var defaultZoom = 1;
 // Step Event
-/*if (!global.can_walk && !global.draw_crafting) {
+if (!global.can_walk && !global.draw_crafting) {
 	current_zoom -= zoom_speed / 2 * (delta_time / 20000);
 	if (current_zoom > 0.5) {
 		current_zoom -= zoom_speed / 2 * (delta_time / 20000);
@@ -24,7 +24,7 @@ var defaultZoom = 7;
 	current_zoom += zoom_speed * (delta_time / 20000);
 	if (current_zoom > defaultZoom) current_zoom = defaultZoom;
 }
-*/
+
 // Clamp so it doesn’t overshoot
 //if (current_zoom < global.target_zoom) current_zoom = global.target_zoom;
 
