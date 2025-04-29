@@ -6,8 +6,8 @@
     {"name":"Scripts","order":37,"path":"folders/Sprites/Scripts.yy",},
     {"name":"snowtops","order":38,"path":"folders/Sprites/snowtops.yy",},
     {"name":"swamp","order":39,"path":"folders/Sprites/swamp.yy",},
-    {"name":"volcanic","order":40,"path":"folders/Sprites/volcanic.yy",},
     {"name":"Tile Sets","order":47,"path":"folders/Sprites/Tile Sets.yy",},
+    {"name":"volcanic","order":40,"path":"folders/Sprites/volcanic.yy",},
   ],
   "ResourceOrderSettings":[
     {"name":"ObjectBauxite","order":34,"path":"objects/ObjectBauxite/ObjectBauxite.yy",},

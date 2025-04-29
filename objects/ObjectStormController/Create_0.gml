@@ -1,6 +1,7 @@
 //PARTICLE MANAGEMENT (as far as I can tell there is no way to reduce this ridiculous amount of code. I apologize)
 global.ps = part_system_create();
 global.emitterArray = [];
+global.stormEmitterArray = [];
 
 //StormPS
 part_system_draw_order(global.ps, true);
@@ -32,11 +33,6 @@ part_type_blend(global.vanishElectricityPulseParticleType, true);
 part_type_life(global.vanishElectricityPulseParticleType, 50, 80);
 part_type_death(global.electricityParticleType, 25, global.vanishElectricityPulseParticleType);
 
-//var electricityEmitter = part_emitter_create(global.ps);
-//part_emitter_region(global.ps, electricityEmitter, -144.02808, 266.02808, 86.13092, 1277.8691, ps_shape_rectangle, ps_distr_linear);
-//part_emitter_stream(global.ps, electricityEmitter, global.electricityParticleType, 2);
-//part_emitter_interval(global.ps, electricityEmitter, 0.2, 0.5, time_source_units_seconds);
-
 //StormEmitter
 global.stormParticleType = part_type_create();
 part_type_shape(global.stormParticleType, pt_shape_line);
@@ -64,10 +60,6 @@ part_type_blend(global.splashParticleType, false);
 part_type_life(global.splashParticleType, 50, 80);
 part_type_death(global.stormParticleType, 5, global.splashParticleType);
 
-//var stormEmitter = part_emitter_create(global.ps);
-//part_emitter_region(global.ps, stormEmitter, -2560, 2560, 0, 0, ps_shape_line, ps_distr_linear);
-//part_emitter_stream(global.ps, stormEmitter, global.stormParticleType, 2);
-
 //HazeEmitter
 global.hazeParticleType = part_type_create();
 part_type_shape(global.hazeParticleType, pt_shape_cloud);
@@ -82,12 +74,47 @@ part_type_alpha3(global.hazeParticleType, 1, 1, 0.259);
 part_type_blend(global.hazeParticleType, true);
 part_type_life(global.hazeParticleType, 700, 700);
 
-//var hazeEmitter = part_emitter_create(global.ps);
-//part_emitter_region(global.ps, hazeEmitter, -175.87305, 305.87305, 30.071045, 1205.929, ps_shape_rectangle, ps_distr_linear);
-//part_emitter_stream(global.ps, hazeEmitter, global.hazeParticleType, 1);
-//part_emitter_interval(global.ps, hazeEmitter, 8, 8, time_source_units_frames);
+//FirePitEmitter
+global.firePitParticleType = part_type_create();
+part_type_shape(global.firePitParticleType, pt_shape_disk);
+part_type_size(global.firePitParticleType, 0.2, 0.15, 0, 0);
+part_type_scale(global.firePitParticleType, 1, 1);
+part_type_speed(global.firePitParticleType, 1, 1, 0.01, 0);
+part_type_direction(global.firePitParticleType, 0, 360, 0, 0);
+part_type_gravity(global.firePitParticleType, 0, 270);
+part_type_orientation(global.firePitParticleType, 0, 0, 0, 0, false);
+part_type_colour3(global.firePitParticleType, $030D2B, $0000FF, $440ACC);
+part_type_alpha3(global.firePitParticleType, 0.549, 0.541, 0.62);
+part_type_blend(global.firePitParticleType, false);
+part_type_life(global.firePitParticleType, 50, 60);
 
-//part_system_position(global.ps, room_width/2, room_height/2);
+//VolcanicDustEmitter
+global.volcanicDustParticleType = part_type_create();
+part_type_shape(global.volcanicDustParticleType, pt_shape_cloud);
+part_type_size(global.volcanicDustParticleType, 0.5, 1, 0, 0.1);
+part_type_scale(global.volcanicDustParticleType, 1, 1);
+part_type_speed(global.volcanicDustParticleType, 1.5, 0.5, 0, 0);
+part_type_direction(global.volcanicDustParticleType, 0, 360, 0, 0);
+part_type_gravity(global.volcanicDustParticleType, 0, 270);
+part_type_orientation(global.volcanicDustParticleType, 0, 360, 0, 0, false);
+part_type_colour3(global.volcanicDustParticleType, $4208FF, $8E92FF, $6B86FF);
+part_type_alpha3(global.volcanicDustParticleType, 1, 1, 0.259);
+part_type_blend(global.volcanicDustParticleType, false);
+part_type_life(global.volcanicDustParticleType, 700, 700);
+
+//SandWindEmitter
+global.sandWindParticleType = part_type_create();
+part_type_shape(global.sandWindParticleType, pt_shape_cloud);
+part_type_size(global.sandWindParticleType, 1, 2, -0.0005, 0);
+part_type_scale(global.sandWindParticleType, 1, 1);
+part_type_speed(global.sandWindParticleType, 1.5, 0.5, 0, 0);
+part_type_direction(global.sandWindParticleType, 0, 360, 0, 0);
+part_type_gravity(global.sandWindParticleType, 0, 270);
+part_type_orientation(global.sandWindParticleType, 0, 360, 0, 0, false);
+part_type_colour3(global.sandWindParticleType, $5CE8FF, $65B7FF, $6BD0FF);
+part_type_alpha3(global.sandWindParticleType, 1, 1, 1);
+part_type_blend(global.sandWindParticleType, false);
+part_type_life(global.sandWindParticleType, 700, 700);
 
 function shifted_random_range(minVal, maxVal) {
 	return (1-power(random(1), 3)) * (maxVal - minVal) + minVal;
@@ -101,7 +128,6 @@ function spawn_item(biome, rare, objId, list) {
 	} else {
 		minR = 1000;
 	}
-//	show_debug_message(minR);
 	minA = 0;
 	maxA = 0;
 	if(biome == 0) {
@@ -157,8 +183,8 @@ function spawn_volcano() {
 		spawn_item(3, false, ObjectQuartz, global.volcano_items);
 		spawn_item(3, false, ObjectSulphur, global.volcano_items);
 		spawn_item(3, false, ObjectLithium, global.volcano_items);
-		if(i%2==0) spawn_item(3, true, ObjectDiamond, global.volcano_items);
-		if(i%5==0) spawn_item(3, false, ObjectBattery, global.volcano_items);
+		if (i%2==0) spawn_item(3, true, ObjectDiamond, global.volcano_items);
+		if (i%5==0) spawn_item(3, false, ObjectBattery, global.volcano_items);
 	}
 }
 
@@ -168,15 +194,18 @@ function clear_biome(biome_list) {
 	}
 }
 
-
 function move_storm_particles() {
 	if (!is_array(global.emitterArray)) {
 		global.emitterArray = [];
 		show_debug_message("emitterArray reset");
 	}
+	if (!is_array(global.stormEmitterArray)) {
+		global.stormEmitterArray = [];
+		show_debug_message("stormEmitterArray reset");
+	}
 	
-	array_foreach(global.emitterArray, function(value) {
-		var position = random_point_in_biome(global.storm_location);
+	array_foreach(global.stormEmitterArray, function(value) {
+		var position = random_point_in_biome(global.storm_location, 100);
 		value.x = position[0];
 		value.y = position[1];
 		
@@ -191,25 +220,36 @@ global.marsh_items = array_create(185);
 global.peaks_items = array_create(185);
 global.volcano_items = array_create(185);
 
-//storm_sys = StormPS;
-//storm_emitter = part_emitter_create(storm_sys);
-//part_emitter_region(StormPS, StormPS.)
-//part_system_depth(storm_particles_sys, -100);
-
 spawn_desert();
 spawn_marsh();
 spawn_peaks();
 spawn_volcano();
 
 for (var i = 0; i < 100; i++) {
+	//Storm particles
 	for (var j = 0; j < 3; j++) {
-		var position = random_point_in_biome(global.storm_location);
+		var position = random_point_in_biome(global.storm_location, 100);
 		var newEmitter = create_particle_by_id(j, position[0], position[1]);
 		show_debug_message("array length: " + string(array_length(global.emitterArray)));
 		array_push(global.emitterArray, newEmitter);
+		array_push(global.stormEmitterArray, newEmitter);
 	}
+	//FirePit particles
+	var position = random_point_in_biome(3, 300);
+	var newEmitter = create_particle_by_id(3, position[0], position[1]);
+	array_push(global.emitterArray, newEmitter);
+	
+	//VolcanicDust particles
+	position = random_point_in_biome(3, 300);
+	var newEmitter2 = create_particle_by_id(4, position[0], position[1]);
+	array_push(global.emitterArray, newEmitter2);
+
+	//SandWind particles
+	position = random_point_in_biome(0, 500);
+	var newEmitter3 = create_particle_by_id(5, position[0], position[1]);
+	array_push(global.emitterArray, newEmitter3);
 }
-show_debug_message("array length2: " + string(array_length(global.emitterArray)));
+
 
 //do not use without saving emitter to array
 function create_particle_by_id(id, x, y) {
@@ -219,16 +259,19 @@ function create_particle_by_id(id, x, y) {
 		return create_particle(global.stormParticleType, x, y - 400, 400, 0, 2, ps_shape_line, ps_distr_linear, -1, -1, time_source_units_frames);
 	} else if (id == 2) { //HazeEmitter
 		return create_particle(global.hazeParticleType, x, y, 500, 500, 1, ps_shape_rectangle, ps_distr_linear, 8, 8, time_source_units_frames);
+	} else if (id == 3) { //FirePitEmitter
+		return create_particle(global.firePitParticleType, x -32, y -32, 64, 64, 13, ps_shape_ellipse, ps_distr_linear, -1, -1, time_source_units_frames); 
+	} else if (id == 4) { //VolcanicDustEmitter
+		return create_particle(global.volcanicDustParticleType, x, y, 512, 512, 1.5, ps_shape_ellipse, ps_distr_linear, -1, -1, time_source_units_frames);
+	} else if (id == 5) { //SandWindEmitter
+		return create_particle(global.sandWindParticleType, x, y, 512, 512, 1.5, ps_shape_ellipse, ps_distr_linear, -1, -1, time_source_units_frames);
 	}
 }
-show_debug_message("array length3: " + string(array_length(global.emitterArray)));
-
 
 //do not use without saving emitter to array
 function create_particle(particleType, xPos, yPos, xSize, ySize, particlesPerStep, shape, distribution, intervalMin, intervalMax, timeUnit) {
 	var emitter = part_emitter_create(global.ps);
-//	part_emitter_region(global.ps, emitter, -xSize/2, xSize/2, -ySize/2, ySize/2, shape, distribution);
-	part_emitter_region(global.ps, emitter, xPos, xPos + xSize, yPos, yPos + ySize, shape, distribution);
+	part_emitter_region(global.ps, emitter, xPos - (xSize / 2), xPos + (xSize / 2), yPos - (ySize / 2), yPos + (ySize / 2), shape, distribution);
 	part_emitter_stream(global.ps, emitter, particleType, 0);
 	if (intervalMin != -1 && intervalMax != -1) {
 		part_emitter_interval(global.ps, emitter, intervalMin, intervalMax, timeUnit);
@@ -247,12 +290,8 @@ function create_particle(particleType, xPos, yPos, xSize, ySize, particlesPerSte
 	}
 }
 
-show_debug_message("array length4: " + string(array_length(global.emitterArray)));
-
-
-function random_point_in_biome(biome) {
+function random_point_in_biome(biome, minR) {
 	maxR = 10000;
-	minR = 0;
 	minA = 0;
 	maxA = 0;
 	if(biome == 0) {
