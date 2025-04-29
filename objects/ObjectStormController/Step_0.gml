@@ -33,16 +33,19 @@ array_foreach(global.emitterArray, function(value) {
 	var renderDistance = 2000;
 	if (is_struct(value)) {
 		if (value.id >= 0 && part_emitter_exists(global.ps, value.id)) {
-			if (point_distance(value.x, value.y, ObjectRobot.x, ObjectRobot.y) > renderDistance && value.active) {
+			if (value.active && point_distance(value.x, value.y, ObjectRobot.x, ObjectRobot.y) > renderDistance) {
 				part_emitter_stream(global.ps, value.id, value.type, 0);
 				show_debug_message("disabled");
 				value.active = false;
-			} else if (point_distance(value.x, value.y, ObjectRobot.x, ObjectRobot.y) < renderDistance && !value.active) {
+			} else if (!value.active && point_distance(value.x, value.y, ObjectRobot.x, ObjectRobot.y) < renderDistance) {
 				part_emitter_stream(global.ps, value.id, value.type, value.particlesPerStep);
+				show_debug_message("enabled");
 				value.active = true;
 			}
 		} else {
 			show_debug_message("Emitter isn't valid: " + string(value));
 		}
+	} else {
+		show_debug_message("value isn't struct");
 	}
 });

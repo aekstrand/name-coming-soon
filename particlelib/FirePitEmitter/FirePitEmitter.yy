@@ -51,7 +51,7 @@
   "sizeMax":0.15,
   "sizeMin":0.2,
   "sizeWiggle":0.0,
-  "spawnOnDeathCount":1,
+  "spawnOnDeathCount":0,
   "spawnOnDeathGMPreset":null,
   "spawnOnDeathId":null,
   "spawnOnUpdateCount":0,

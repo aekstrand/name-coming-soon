@@ -44,8 +44,9 @@ switch (state) {
 
         if (!attacking) {
             attacking = true;
-            global.health--;
-            alarm[0] = 60;
+            //global.health--;
+            global.takeDamage(1);
+			alarm[0] = 60;
         }
 
         if (distance_to_object(ObjectRobot) > attack_range) {

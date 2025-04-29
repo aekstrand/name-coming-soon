@@ -15,19 +15,13 @@ if(instance_exists(global.last_item) && global.last_item.id != self.id) {
 			global.draw_crafting = !global.draw_crafting;
 			global.can_walk = !global.can_walk;
 		} else if(global.last_item.object_index == ObjectBattery) {
-			global.can_walk = false; //pauses the player while picking up item
-			alarm[8] = 40;
-			global.health += 4;
-			instance_destroy(global.last_item.id);
-			global.last_item = self;
+			pickupItem();
+			global.health = global.maxHealth;
 		} else if(global.item_id != -1 && global.inventory_size < 6) {
-			global.can_walk = false; //pauses the player while picking up item
-			alarm[8] = 40;
 			global.resources_in_inventory[global.item_id] += 1;
 			global.inventory_size += 1;
 			global.inventory[global.inventory_size - 1] = global.last_item.id.sprite_index;
-			instance_destroy(global.last_item.id);
-			global.last_item = self;
+			pickupItem();
 			global.item_id = -1;
 			
 			//legacy code just in case
@@ -63,3 +57,12 @@ if(instance_exists(global.last_item) && global.last_item.id != self.id) {
 		global.last_item = self;
 	}
 }
+
+function pickupItem() {
+	global.can_walk = false; //pauses the player while picking up item
+	alarm[8] = 40;
+	audio_play_sound(sndScan, 0, false);
+	instance_destroy(global.last_item.id);
+	global.last_item = self;
+}
+

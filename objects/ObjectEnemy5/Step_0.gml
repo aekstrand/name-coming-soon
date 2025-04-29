@@ -44,7 +44,8 @@ spd = 0
 
         if (!attacking) {
             attacking = true;
-            global.health--;
+//            global.health--;
+			global.takeDamage(1);
             alarm[0] = 60;
         }
 

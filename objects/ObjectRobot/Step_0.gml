@@ -42,12 +42,13 @@ x = clamp(x, 0, room_width - sprite_width);
 y = clamp(y, 0, room_height - sprite_height);
 
 global.time += delta_time;
-if(global.time > 10000000) {
-	global.time -= 10000000;
-	global.health -= 1;
+if(global.time > 100000) {
+	global.time -= 100000;
+	global.health -= 0.01;
 }
 
 if (global.health <= 0) {
+	audio_play_sound(sndDeath, 0, false);
 	global.wood_in_inventory = 0;
 	room_restart();
 }

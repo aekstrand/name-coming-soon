@@ -6,6 +6,7 @@
     {"name":"Scripts","order":37,"path":"folders/Sprites/Scripts.yy",},
     {"name":"snowtops","order":38,"path":"folders/Sprites/snowtops.yy",},
     {"name":"swamp","order":39,"path":"folders/Sprites/swamp.yy",},
+    {"name":"Tile Sets","order":47,"path":"folders/Sprites/Tile Sets.yy",},
     {"name":"volcanic","order":40,"path":"folders/Sprites/volcanic.yy",},
   ],
   "ResourceOrderSettings":[
@@ -42,6 +43,9 @@
     {"name":"ObjectTerrain","order":21,"path":"objects/ObjectTerrain/ObjectTerrain.yy",},
     {"name":"ObjectUranium","order":15,"path":"objects/ObjectUranium/ObjectUranium.yy",},
     {"name":"ObjectWood","order":29,"path":"objects/ObjectWood/ObjectWood.yy",},
+    {"name":"sndRobotHit1","order":1,"path":"sounds/sndRobotHit1/sndRobotHit1.yy",},
+    {"name":"sndRobotHit2","order":2,"path":"sounds/sndRobotHit2/sndRobotHit2.yy",},
+    {"name":"sndScan","order":3,"path":"sounds/sndScan/sndScan.yy",},
     {"name":"desert1","order":2,"path":"sprites/desert1/desert1.yy",},
     {"name":"desert2","order":7,"path":"sprites/desert2/desert2.yy",},
     {"name":"desert3","order":5,"path":"sprites/desert3/desert3.yy",},

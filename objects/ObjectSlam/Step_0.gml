@@ -6,5 +6,6 @@ if (radius >= max_radius) {
 
 
 if (distance_to_object(ObjectRobot) < radius + 4 && distance_to_object(ObjectRobot) > radius - 4) {
-    global.health -= 1;
+    global.takeDamage(1);
+//	global.health -= 1;
 }

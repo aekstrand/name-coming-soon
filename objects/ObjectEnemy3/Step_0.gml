@@ -37,7 +37,8 @@ switch (state) {
 
     case "check_damage":
         if (place_meeting(x, y, ObjectRobot)) {
-            global.health -= 1;
+			global.takeDamage(1);
+            //global.health -= 1;
         }
 
         image_alpha = 0;
