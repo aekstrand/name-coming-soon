@@ -67,21 +67,21 @@ sprite_index = SpriteRobotFront;
 
 global.recipe_text = [
 [
-	["Improved Treads",""],
-	["Ion Siphon",""],
-	["Reflective Signal Focus",""],
-	["Hazard-Shielded Reactor",""],
-	["Optimized Storage Module",""],
+	["Improved Treads","Increases movement speed"],
+	["Ion Siphon","Increases the amount of charge gained by batteries"],
+	["Reflective Signal Focus","Speeds up scanning resources"],
+	["Hazard-Shielded Reactor","Decreases battery drain"],
+	["Optimized Storage Module","Increases held inventory size"],
 	["Enemy Radar",""],
 	["Resource Radar",""],
 	["Emergency Boost",""],
 ],
 [
-	["Salvaged Components",""],
-	["Rocket Platform",""],
-	["Engines",""],
-	["Atmospheric Shielding",""],
-	["Navigation Systems",""],
+	["Salvaged Components","Cobble together the remains of your rocket"],
+	["Rocket Platform","Set up braces and scaffolding for the rocket"],
+	["Engines","Upgrade the engine to gain enough power to break orbit"],
+	["Atmospheric Shielding","Encase the rocket with metal that can withstand space launch"],
+	["Navigation Systems","Program a computer to take you home"],
 	["ERROR: This should not be visible!","null"],
 	["ERROR: This should not be visible!","null"],
 	["ERROR: This should not be visible!","null"],
@@ -109,7 +109,11 @@ global.recipe_cost = [
 	[0,0,0,0,0,0,0,0,0,0,0,0],
 	[0,0,0,0,0,0,0,0,0,0,0,0],
 ]];
-global.recipes_completed = [false,false,false,false,false,false,false,false,false,false,false,false];
+global.recipes_completed = [
+[false,false,false,false,false,false,false,false],
+[false,false,false,false,false]
+];
+global.can_craft = false;
 
 global.takeDamage = function(damage) {
 	global.health -= damage;
