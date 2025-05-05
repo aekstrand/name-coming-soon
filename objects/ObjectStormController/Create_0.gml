@@ -217,10 +217,10 @@ function move_storm_particles() {
 
 global.storm_location = 0;
 global.storm_timer = 0;
-global.desert_items = array_create(185);
-global.marsh_items = array_create(185);
-global.peaks_items = array_create(185);
-global.volcano_items = array_create(185);
+global.desert_items = array_create(370);
+global.marsh_items = array_create(370);
+global.peaks_items = array_create(370);
+global.volcano_items = array_create(370);
 
 spawn_desert();
 spawn_marsh();
