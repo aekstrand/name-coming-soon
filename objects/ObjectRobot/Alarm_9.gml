@@ -1,0 +1,1 @@
+global.emergency_boost = false;

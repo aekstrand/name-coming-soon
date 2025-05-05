@@ -189,8 +189,10 @@ function spawn_volcano() {
 }
 
 function clear_biome(biome_list) {
-	for(var i = 0; i < 185; i++) {
-		instance_destroy(array_pop(biome_list));
+	for(var i = 0; i < 370; i++) {
+		if(array_length(biome_list)) {
+			instance_destroy(array_pop(biome_list));
+		}
 	}
 }
 

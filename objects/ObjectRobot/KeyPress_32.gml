@@ -16,8 +16,15 @@ if(instance_exists(global.last_item) && global.last_item.id != self.id) {
 			global.can_walk = !global.can_walk;
 		} else if(global.last_item.object_index == ObjectBattery) {
 			pickupItem();
-			global.health = global.maxHealth;
-		} else if(global.item_id != -1 && global.inventory_size < 6) {
+			if(global.recipes_completed[0][1]) {
+				global.health += 4;
+			} else {
+				global.health += 2;
+			}
+			if(!global.recipes_completed[0][5] && global.health > global.maxHealth) {
+				global.health = global.maxHealth;
+			}
+		} else if(global.item_id != -1 && global.inventory_size < global.max_inventory) {
 			global.resources_in_inventory[global.item_id] += 1;
 			global.inventory_size += 1;
 			global.inventory[global.inventory_size - 1] = global.last_item.id.sprite_index;
@@ -60,7 +67,11 @@ if(instance_exists(global.last_item) && global.last_item.id != self.id) {
 
 function pickupItem() {
 	global.can_walk = false; //pauses the player while picking up item
-	alarm[8] = 40;
+	if(global.recipes_completed[0][2]) {
+		alarm[8] = 20;
+	} else {
+		alarm[8] = 40;
+	}
 	audio_play_sound(sndScan, 0, false);
 	instance_destroy(global.last_item.id);
 	global.last_item = self;

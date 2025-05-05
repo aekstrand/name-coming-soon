@@ -1,6 +1,26 @@
 var xDir = 0;
 var yDir = 0;
 
+if(global.recipes_completed[0][0]) {
+	if(global.emergency_boost) {
+		global.speed = 10;
+	} else {
+		global.speed = 6;
+	}
+} else {
+	if(global.emergency_boost) {
+		global.speed = 8;
+	} else {
+		global.speed = 4;
+	}
+}
+
+if(global.recipes_completed[0][4]) {
+	global.max_inventory = 10;
+} else {
+	global.max_inventory = 6;
+}
+
 if (global.can_walk) {
 	if(keyboard_check(ord("A"))) {
 		xDir = -global.speed;
@@ -44,7 +64,11 @@ y = clamp(y, 0, room_height - sprite_height);
 global.time += delta_time;
 if(global.time > 100000) {
 	global.time -= 100000;
-	global.health -= 0.01;
+	if(global.recipes_completed[0][3]) {
+		global.health -= 0.006;
+	} else {
+		global.health -= 0.01;
+	}
 }
 
 if (global.health <= 0) {
