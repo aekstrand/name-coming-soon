@@ -7,5 +7,8 @@ global.resources_in_inventory = [0,0,0,0,0,0,0,0,0,0,0,0];
 global.inventory = [0, 0, 0, 0, 0, 0];
 global.inventory_size = 0;
 global.time = 0;
+if (global.health < global.maxHealth - 1) {
+	audio_play_sound(sndRecharge, 0, false);
+}
 global.health = global.maxHealth;
 global.can_boost = true;

@@ -12,6 +12,7 @@ global.debug_ids = ["Copper","Plant Matter (Wood)","Sulphur","Quartz","Aluminum"
 global.sprite_ids = [SpriteCopper,SpriteWood,SpriteSulphur,SpriteQuartz,SpriteBauxite,SpriteClay,SpriteLithium,SpriteOil,SpritePlatinum,SpriteUranium,SpriteDiamond,SpriteGold];
 global.resources_in_inventory = [0,0,0,0,0,0,0,0,0,0,0,0];
 global.resources_in_base = [0,0,0,0,0,0,0,0,0,0,0,0];
+global.timeSinceDrivingSound = 0;
 
 //legacy variables just in case
 //global.bauxite_in_inventory = 0;

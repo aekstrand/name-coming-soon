@@ -45,7 +45,7 @@
     {"name":"HazeEmitter","path":"particlelib/HazeEmitter/HazeEmitter.yy",},
   ],
   "MetaData":{
-    "IDEVersion":"2024.13.1.193",
+    "IDEVersion":"2024.13.0.190",
   },
   "name":"name-coming-soon",
   "resources":[
@@ -90,7 +90,12 @@
     {"id":{"name":"StormPS","path":"particles/StormPS/StormPS.yy",},},
     {"id":{"name":"VolcanicDustPS","path":"particles/VolcanicDustPS/VolcanicDustPS.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"sndChangeRecipes","path":"sounds/sndChangeRecipes/sndChangeRecipes.yy",},},
+    {"id":{"name":"sndCraft","path":"sounds/sndCraft/sndCraft.yy",},},
+    {"id":{"name":"sndCraftingFailed","path":"sounds/sndCraftingFailed/sndCraftingFailed.yy",},},
     {"id":{"name":"sndDeath","path":"sounds/sndDeath/sndDeath.yy",},},
+    {"id":{"name":"sndRecharge","path":"sounds/sndRecharge/sndRecharge.yy",},},
+    {"id":{"name":"sndRobotDriving","path":"sounds/sndRobotDriving/sndRobotDriving.yy",},},
     {"id":{"name":"sndRobotHit1","path":"sounds/sndRobotHit1/sndRobotHit1.yy",},},
     {"id":{"name":"sndRobotHit2","path":"sounds/sndRobotHit2/sndRobotHit2.yy",},},
     {"id":{"name":"sndScan","path":"sounds/sndScan/sndScan.yy",},},

@@ -9,3 +9,4 @@ global.resources_in_inventory = [0,0,0,0,0,0,0,0,0,0,0,0];
 global.inventory = [0, 0, 0, 0, 0, 0];
 global.emergency_boost = false;
 global.can_boost = true;
+global.timeSinceDrivingSound = 0;
